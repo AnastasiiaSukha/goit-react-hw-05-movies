@@ -23,3 +23,17 @@ export const getMovieDetails = async movie_id => {
 
   return response.data;
 };
+
+export const getCast = async movie_id => {
+  const response = await axios.get(`
+    https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`);
+
+  return response.data;
+};
+
+export const getReviews = async movie_id => {
+  const response = await axios.get(`
+    https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+
+  return response.data;
+};

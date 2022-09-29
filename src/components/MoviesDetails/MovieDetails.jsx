@@ -1,11 +1,11 @@
-
+import { Link, Outlet } from "react-router-dom";
 
 const MovieDetails = ({ movie }) => {
 
     const {
     overview = 'No description',
     poster_path,
-    original_title = 'No title',
+    title = 'No title',
     vote_average = 'No votes yet',
     genres = 'In process...',
     release_date = 'Release date is missing',
@@ -14,8 +14,8 @@ const MovieDetails = ({ movie }) => {
 
     return (
           <>
-                 <img src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />
-                    <h1>{`${original_title} (${release_date.slice(0, 4)})`}{' '}</h1>
+                 <img src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
+                    <h1>{`${title} (${release_date.slice(0, 4)})`}{' '}</h1>
                     <p>Vote Average : {vote_average}</p>
             <h2>Overview</h2>
             <p>{overview}</p>
@@ -25,9 +25,13 @@ const MovieDetails = ({ movie }) => {
                 ))}
             <h2>Additional Information</h2>
             <ul>
-                <li>Cast</li>
-                <li>Reviews</li>
-                    </ul>
+          <li>
+            <Link to="cast">Cast</Link>
+                </li>
+          <li>
+            <Link to="reviews">Reviews</Link></li>
+        </ul>
+        <Outlet/>
                 </>
     )
 }

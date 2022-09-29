@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from "services/Api";
-import {MoviesList} from "components/MoviesList/MoviesList"
+import { MoviesList } from "components/MoviesList/MoviesList"
+import { Container } from "App.styled";
 
 
 export function Home() {
@@ -21,11 +22,11 @@ export function Home() {
     
     
     return (
-        <div>
+        <Container>
             <h1>Trending Movies Today</h1>
             <MoviesList movies={movies}/>
 
             
-     </div>
+     </Container>
  )
 }
