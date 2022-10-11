@@ -7,7 +7,6 @@ export const MovieContainer = styled.div`
   align-items: flex-start;
   width: 1400px;
   margin: 0px auto;
-  padding-top: 50px;
   padding-bottom: 50px;
 `;
 
@@ -83,3 +82,19 @@ export const GenresList = styled.ul`
     list-style: none;
     
     `
+
+export const BackButton = styled.button`
+border: solid 2px #f5deb3;
+border-radius: 50%;
+padding: 15px;
+margin-left: 40px;
+margin-top: 10px;
+margin-bottom: 15px;
+color: #f5deb3;
+background-image: linear-gradient(to right, #1e130c, #9a8478);
+  &:hover{
+    border: solid 2px #5F4939;
+    color: #5F4939;
+    background: #f5deb3; 
+  }
+`

@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
-import {GenresList, Paragraph, SecondTitle, MovieTitle, MovieInfo, StyledLink, Image, MovieContainer, AdditionalContainer } from "./MovieDetails.styled";
+import { GenresList, Paragraph, SecondTitle, MovieTitle, MovieInfo, StyledLink, Image, MovieContainer, AdditionalContainer } from "./MovieDetails.styled";
+import noPoster from "img/noPoster.png"
 
 
 const MovieDetails = ({ movie }) => {
@@ -20,7 +21,7 @@ const MovieDetails = ({ movie }) => {
   return (
     <>
     <MovieContainer>
-        <Image src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
+        <Image src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` :noPoster} alt={title} />
        < MovieInfo>
                     <MovieTitle>{`${title} (${release_date.slice(0, 4)})`}{' '}</MovieTitle>
                     <Paragraph>Vote Average : {vote_average}</Paragraph>

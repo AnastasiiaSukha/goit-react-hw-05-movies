@@ -4,6 +4,7 @@ import { MoviesList } from "components/MoviesList/MovieList";
 import { Container, MainTitle } from "App.styled";
 
 
+
 export function Home() {
     const [movies, setMovies] = useState([]);
 

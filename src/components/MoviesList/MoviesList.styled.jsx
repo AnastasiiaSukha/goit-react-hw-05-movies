@@ -27,7 +27,7 @@ export const MovieList = styled.ul`
 `
 export const Poster = styled.img`
   width: 100%;
-  height: 100%;
+  height: 450px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border-radius: 4px;
 `
@@ -35,8 +35,16 @@ export const Poster = styled.img`
 
 export const Link = styled(NavLink)`
   border-radius: 4px;
+  text-decoration: none;
   &hover{
-    
+    color: #5F4939;
   }
-  
 `;
+
+export const MovieTitle = styled.h2`
+color: #fceabb;
+font-family: 'Playfair Display', serif;
+font-weight: 500;
+ text-shadow: 2px 2px #a28557;
+ font-size: 30px;
+`

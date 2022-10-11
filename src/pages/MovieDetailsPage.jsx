@@ -3,6 +3,8 @@ import { getMovieDetails } from "services/Api";
 import { useParams } from "react-router";
 import MovieDetails from "components/MoviesDetails/MovieDetails";
 import {useLocation, useNavigate } from "react-router-dom";
+import { FaBackward } from 'react-icons/fa';
+import { BackButton } from "components/MoviesDetails/MovieDetails.styled";
 
 export function MovieDetailsPage() {
   
@@ -36,7 +38,7 @@ export function MovieDetailsPage() {
 
 
   return (<>
-          <button onClick={GoBack}> Go back</button>
+    <BackButton onClick={GoBack}> <FaBackward size={15}/></BackButton >
 
       <div>
             {movie && <MovieDetails movie={movie}/> }

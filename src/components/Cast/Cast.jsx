@@ -1,6 +1,8 @@
 import { getCast } from "services/Api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { CastContainer, CastList, CastItem, CastPhoto } from "./Cast.styled";
+import noImage from 'img/images.png'
 
 export const Cast = () => {
 
@@ -21,19 +23,18 @@ useEffect(() => {
     
     
     return (
-        <div>
-            <h1> Cast </h1>
-            <div>
+        <CastContainer>
+            <CastList>
             {cast.map(({id, name, profile_path, character }) => (
-                       <ul key={id}>
-                        <img src={profile_path && `https://image.tmdb.org/t/p/w500${profile_path}`} alt={name}/>
+                       <CastItem key={id}>
+                    <CastPhoto src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : noImage} alt={name}/>
                     <h2>{name}</h2>
                     <h3>As {character }</h3>
+                    </CastItem>
             
-            </ul>
+           
             ))}
- 
-            </div>
-        </div>
+             </CastList>
+        </CastContainer>
     )
 }
