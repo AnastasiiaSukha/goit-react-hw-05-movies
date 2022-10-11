@@ -1,11 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from "react-router-dom";
 
-export const MoviesContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-  padding-bottom: 24px;`
+
 
 export const MovieItem = styled.li`
   

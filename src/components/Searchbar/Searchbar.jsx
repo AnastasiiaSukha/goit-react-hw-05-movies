@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import PropTypes from 'prop-types';
-import { SearchbarHeader, SearchForm, SearchFormButton, SearchFormInput, ButtonLabel } from "./Searchbar.styled";
+import {SearchForm, SearchFormButton, SearchFormInput, ButtonLabel } from "./Searchbar.styled";
 import { FiSearch } from "react-icons/fi";
 
 
@@ -26,7 +26,6 @@ function Searchbar({onSubmit}) {
 
 
         return (
-        <SearchbarHeader>
      <SearchForm onSubmit={handleSubmit}>
       <SearchFormButton type="submit">
       <FiSearch size={20}> </FiSearch>     
@@ -42,7 +41,6 @@ function Searchbar({onSubmit}) {
       placeholder="Search..."
     />
   </SearchForm>
-</SearchbarHeader>
         )
 
     

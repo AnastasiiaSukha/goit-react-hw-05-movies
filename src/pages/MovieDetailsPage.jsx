@@ -2,11 +2,14 @@ import { useState, useEffect} from "react";
 import { getMovieDetails } from "services/Api";
 import { useParams } from "react-router";
 import MovieDetails from "components/MoviesDetails/MovieDetails";
+import {useLocation, useNavigate } from "react-router-dom";
 
 export function MovieDetailsPage() {
-    const { id } = useParams();
-
-    const [movie, setMovie] = useState(null);
+  
+   const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
     useEffect(() => {
     getMovieDetails(id)
@@ -22,15 +25,25 @@ export function MovieDetailsPage() {
       .catch(error => {
           console.log(error);
       });
-  }, [id]);
+    }, [id]);
+  
+  
+  const backLinkHref = location.state?.from ?? '/movies';
+
+  const GoBack = () => {
+    navigate(backLinkHref);
+  };
 
 
-    return (
+  return (<>
+          <button onClick={GoBack}> Go back</button>
 
-        <div>
+      <div>
             {movie && <MovieDetails movie={movie}/> }
                 
         </div>
+  </>
+
     )
         
 }

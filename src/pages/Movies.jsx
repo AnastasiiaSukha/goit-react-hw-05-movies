@@ -1,57 +1,57 @@
 import React, { useState, useEffect } from "react";
 import Searchbar from "components/Searchbar/Searchbar";
 import { movieSearch } from "services/Api";
-import { MoviesList } from "components/MoviesList/MoviesList";
+import { MoviesList } from "components/MoviesList/MovieList";
 import { Loader } from "components/Loader/Loader";
 import { Container } from "App.styled";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from "react-router";
+import { useSearchParams } from "react-router-dom";
 
 
 
 export function Movies() {
   
-  const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
   const [error, setError] = useState("");
   const [status, setStatus] = useState('idle');
+  const [searchParams, setSearchParams] = useSearchParams();
  
+  const query = searchParams.get('query') ?? '';
 
   const notify = () => toast("Sorry, there is no images with this name!");
 
   useEffect(() => {
   
-    if (!search) return;
+    if (!query) return;
 
     setStatus('pending');
 
-    movieSearch(search, page).then(
-    response => {
-      if (response.total_results === 0) {
-        notify();
-        setMovies([]);
-      }
-      setMovies(prevState => ([...prevState, ...response.results]));
-      setStatus('resolved');
+    movieSearch(query).then(
+      response => {
+        if (response.total_results === 0) {
+          notify();
+          setMovies([]);
+        }
+        setMovies(response.results);
+        setStatus('resolved');
       
-    }
-  ).catch(error => {
-    setError(error);
-    setStatus('rejected')
+      }
+    ).catch(error => {
+      setError(error);
+      setStatus('rejected')
     
-  });
+    });
 
-  },[search, page])
+  }, [query]);
 
 
 
-  const handleSubmit = text => {
-    setPage(1);
-    setSearch(text);
+  function handleSubmit(value) {
     setMovies([]);
-  };
+    setSearchParams(value !== '' ? { query: value } : {});
+  }
 
 
 

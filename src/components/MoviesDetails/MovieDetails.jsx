@@ -1,6 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import {GenresList, Paragraph, SecondTitle, MovieTitle, MovieInfo, StyledLink, Image, MovieContainer, AdditionalContainer } from "./MovieDetails.styled";
+
 
 const MovieDetails = ({ movie }) => {
+
+  
 
     const {
     overview = 'No description',
@@ -10,29 +14,36 @@ const MovieDetails = ({ movie }) => {
     genres = 'In process...',
     release_date = 'Release date is missing',
   } = movie;
-    
 
-    return (
-          <>
-                 <img src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
-                    <h1>{`${title} (${release_date.slice(0, 4)})`}{' '}</h1>
-                    <p>Vote Average : {vote_average}</p>
-            <h2>Overview</h2>
-            <p>{overview}</p>
-            <h2>Genres</h2>
+  
+
+  return (
+    <>
+    <MovieContainer>
+        <Image src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
+       < MovieInfo>
+                    <MovieTitle>{`${title} (${release_date.slice(0, 4)})`}{' '}</MovieTitle>
+                    <Paragraph>Vote Average : {vote_average}</Paragraph>
+            <SecondTitle>Overview</SecondTitle>
+          <Paragraph>{overview}</Paragraph>
+          <GenresList>
+            <SecondTitle>Genres</SecondTitle>
             {genres.map(genre => (
                   <li key={genre.id}>{genre.name}</li>
-                ))}
-            <h2>Additional Information</h2>
-            <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-                </li>
-          <li>
-            <Link to="reviews">Reviews</Link></li>
-        </ul>
-        <Outlet/>
-                </>
+            ))}
+            </GenresList>
+            </MovieInfo>
+      </MovieContainer>
+      <AdditionalContainer>
+            <SecondTitle>Additional Information</SecondTitle>
+            <StyledLink to="cast">Cast</StyledLink>
+
+            <StyledLink to="reviews">Reviews</StyledLink>
+      </AdditionalContainer>
+      
+        <Outlet />
+        </>
+      
     )
 }
 

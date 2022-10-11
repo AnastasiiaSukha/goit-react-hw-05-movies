@@ -5,7 +5,7 @@ import { Spinner } from "./Loader.styled";
 
 export const Loader = () => {
     return (<Spinner>
-        <TailSpin color="#00BFFF" height={80} width={80} />
+        <TailSpin color="#f6eabe" height={80} width={80} />
     </Spinner>
         )
 }

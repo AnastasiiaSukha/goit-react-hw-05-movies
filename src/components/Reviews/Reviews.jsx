@@ -19,7 +19,7 @@ useEffect(() => {
     
     return (
         <div>
-            {reviews.length===0 ? "No Reviews for this Movie Yet" : 
+            {reviews.length===0 ? "We don't have any reviews for this movie yet" : 
                 <div>
             <h1> Reviews </h1>
             <ul key={id}>
