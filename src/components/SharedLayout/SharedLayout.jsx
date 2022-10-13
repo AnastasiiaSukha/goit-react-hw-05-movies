@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom"
 import { Header, Logo, StyledLink } from "./SharedLayout.styled"
 import { RiMovie2Line } from 'react-icons/ri';
+import { Suspense } from "react";
+import { Loader } from "components/Loader/Loader";
 
 
 
@@ -20,7 +22,10 @@ export const SharedLayout = () => {
         <StyledLink to="/movies">Movies</StyledLink>
       </nav>
     </Header>
-    <Outlet />
+    <Suspense fallback={<Loader/>}>
+     <Outlet />
+    </Suspense>
+   
   </>
   );
       

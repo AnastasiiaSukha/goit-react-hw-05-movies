@@ -5,7 +5,7 @@ import { Container, MainTitle } from "App.styled";
 
 
 
-export function Home() {
+function Home() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -32,3 +32,4 @@ export function Home() {
  )
 }
 
+export default Home;

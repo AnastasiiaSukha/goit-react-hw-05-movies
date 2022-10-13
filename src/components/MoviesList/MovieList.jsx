@@ -1,7 +1,9 @@
 
 import { useLocation } from "react-router";
 import { MovieItem, MovieList, Poster, Link, MovieTitle } from "./MoviesList.styled";
-import noPoster from "img/noPoster.png"
+import noPoster from "img/noPoster.png";
+import { PropTypes } from "prop-types";
+
 
 export const MoviesList = ({ movies }) => {
     const location = useLocation();
@@ -21,4 +23,8 @@ export const MoviesList = ({ movies }) => {
     )
 
 
+}
+
+MoviesList.propTypes = {
+movies: PropTypes.array,
 }

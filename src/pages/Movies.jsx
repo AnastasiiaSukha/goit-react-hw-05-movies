@@ -11,7 +11,7 @@ import { useSearchParams } from "react-router-dom";
 
 
 
-export function Movies() {
+function Movies() {
   
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
@@ -20,7 +20,7 @@ export function Movies() {
  
   const query = searchParams.get('query') ?? '';
 
-  const notify = () => toast("Sorry, there is no images with this name!");
+  const notify = () => toast("Sorry, there is no movies with this name!");
 
   useEffect(() => {
   
@@ -82,3 +82,5 @@ export function Movies() {
 
 
 };
+
+export default Movies;

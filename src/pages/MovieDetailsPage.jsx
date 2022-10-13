@@ -6,7 +6,7 @@ import {useLocation, useNavigate } from "react-router-dom";
 import { FaBackward } from 'react-icons/fa';
 import { BackButton } from "components/MoviesDetails/MovieDetails.styled";
 
-export function MovieDetailsPage() {
+function MovieDetailsPage() {
   
    const { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -49,3 +49,5 @@ export function MovieDetailsPage() {
     )
         
 }
+
+export default MovieDetailsPage;

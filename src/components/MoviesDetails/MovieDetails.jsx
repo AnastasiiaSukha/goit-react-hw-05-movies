@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { GenresList, Paragraph, SecondTitle, MovieTitle, MovieInfo, StyledLink, Image, MovieContainer, AdditionalContainer } from "./MovieDetails.styled";
-import noPoster from "img/noPoster.png"
+import noPoster from "img/noPoster.png";
+import { PropTypes } from "prop-types";
 
 
 const MovieDetails = ({ movie }) => {
@@ -46,6 +47,10 @@ const MovieDetails = ({ movie }) => {
         </>
       
     )
+}
+
+MovieDetails.propTypes = {
+movies: PropTypes.array,
 }
 
 export default MovieDetails;
